@@ -7,15 +7,7 @@
 - [Acknowledgments](#Acknowledgments)
 
 ## Introduction
-We provide code for evaluate the safety and sample-efficiency of our proposed RL framework.
-
-For safety, we use Safe Set Algorithm (SSA).   
-For efficiency, there are more strategies you can choose:  
-1, Adapting SSA;  
-2, Exploration (PSN, RND, None);  
-3, Learning from SSA;  
-
-The video result is shown below, agent is trained to drive to the goal while avoiding dynamic obstacles. The red means SSA is triggered.
+We provide code for evaluate the safety of our proposed safe control method - Safe Set Algorithm (SSA).
 
 <img src="docs/SSA_RL.gif" width="400" height="460">
 
@@ -24,9 +16,7 @@ The video result is shown below, agent is trained to drive to the goal while avo
 ```
 conda create -n safe-rl
 conda install python=3.7.9
-pip install tensorflow==2.2.1
 pip install future
-pip install keras
 pip install matplotlib
 pip install gym
 pip install cvxopt
