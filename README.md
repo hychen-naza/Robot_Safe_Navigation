@@ -1,4 +1,4 @@
-# Safe and Sample efficient Reinforcement Learning for Clustered Dynamic Uncertain Environments
+# Robot Safe Navigation in Clustered Dynamic Environments
 
 ## Table of Contents
 - [Introduction](#Introduction)
