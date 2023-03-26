@@ -1,7 +1,6 @@
 from __future__ import division
 from __future__ import absolute_import
 
-from past.utils import old_div
 import math
 import time
 import turtle
@@ -115,7 +114,7 @@ class TurtleRunnerDisplay( runner.BaseRunnerDisplay ):
 
     def robot_at_loc(self, x, y, h, is_ssa = False):
         self.robot_turtle.setposition(x,y)
-        self.robot_turtle.settiltangle( old_div(h * 180, math.pi) )
+        self.robot_turtle.settiltangle(h * 180 / math.pi)
         self.robot_turtle.color("red" if is_ssa else "black")
         self.robot_turtle.showturtle()
 
