@@ -16,9 +16,6 @@ We provide code for evaluate the safety of our proposed safe control method - Sa
 ```
 conda create -n safe-rl
 conda install python=3.7.9
-pip install future
-pip install matplotlib
-pip install gym
 pip install cvxopt
 ```
 
