@@ -15,7 +15,6 @@ We provide code for evaluate the safety of our proposed safe control method - Sa
 
 ```
 conda create -n safe_nav
-conda install python=3.9
 pip install cvxopt
 ```
 
