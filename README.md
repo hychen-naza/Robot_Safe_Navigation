@@ -22,7 +22,7 @@ pip install cvxopt
 
 ```
 python main.py --no-ssa
-python main.py --qp --ssa
+python main.py --ssa
 ```
 - `--no-ssa` means that ssa is not used.
 - `--ssa` means that ssa is used for monitoring and modifying the unsafe control.
