@@ -21,16 +21,11 @@ pip install cvxopt
 ## Usage
 
 ```
-python train.py --display {none, turtle} --explore {none, psn, rnd} --no-qp --no-ssa-buffer
-python train.py --display {none, turtle} --explore {none, psn, rnd} --qp --no-ssa-buffer
-python train.py --display {none, turtle} --explore {none, psn, rnd} --no-qp --ssa-buffer
+python main.py --no-ssa
+python main.py --qp --ssa
 ```
-- `--display` can be either `none` or `turtle` (visulization).
-- `--explore` specifies the exploration strategy that the robot uses. 
-- `--no-qp` means that we use vanilla SSA.
-- `--qp` means that we use adapted SSA.
-- `--no-ssa-buffer` means that we use the default learning.
-- `--ssa-buffer` means that we use the safe learning from SSA demonstrations.
+- `--no-ssa` means that ssa is not used.
+- `--ssa` means that ssa is used for monitoring and modifying the unsafe control.
 
 
 ## Acknowledgments
