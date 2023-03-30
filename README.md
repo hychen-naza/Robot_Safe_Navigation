@@ -9,7 +9,7 @@
 ## Introduction
 We provide code of safe control method - Safe Set Algorithm (SSA) and test it in a crowded dynamic environment.
 
-<img src="docs/SSA_RL.gif" width="400" height="460">
+<img src="SSA_RL.gif" width="400" height="460">
 
 ## Install
 
