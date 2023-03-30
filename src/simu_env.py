@@ -129,7 +129,7 @@ class Env(object):
 		return [dv_x, dv_y]
 
 
-	def find_unsafe_obstacles(self, min_dist):
+	def detect_obstacles(self, min_dist):
 		cx, cy, _ = self.robot_state.position
 		unsafe_obstacles = self.field.unsafe_obstacle_locations(self.cur_step, cx, cy, min_dist)
 		unsafe_obstacle_ids = [ele[0] for ele in unsafe_obstacles]

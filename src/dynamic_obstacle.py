@@ -71,7 +71,7 @@ class Obstacle():
         return v_y
 
 FIELD_X_BOUNDS = (-0.95, 0.95)
-FIELD_Y_BOUNDS = (-0.95, 1.0)
+FIELD_Y_BOUNDS = (-0.90, 1.0)
 
 class ObstacleField(object):
     
