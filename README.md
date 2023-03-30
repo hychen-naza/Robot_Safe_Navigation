@@ -14,7 +14,6 @@ We provide code of safe control method - Safe Set Algorithm (SSA) and test it in
 ## Install
 
 ```
-conda create -n safe_nav
 pip install cvxopt
 ```
 
