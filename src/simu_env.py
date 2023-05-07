@@ -66,8 +66,10 @@ class Env(object):
 							margin = self.min_dist)
 		self.field.random_init() # randomize the init position of obstacles
 		cx,cy,_ = self.robot_state.position
+		obstacle_id, obstacle_pos, _ = self.find_nearest_obstacle(cx,cy)
 		state = [cx, cy, self.robot_state.v_x, self.robot_state.v_y]
-		return np.array(state)
+		relative_pos = [cx - obstacle_pos[0], cy - obstacle_pos[1]]
+		return np.array(state + relative_pos)
 
 	def check_collision(self, cx, cy, unsafe_obstacle_ids = []):
 		astlocs = self.field.obstacle_locations(self.cur_step, cx, cy, self.min_dist * 5)
@@ -91,6 +93,24 @@ class Env(object):
 	def display_end(self):
 		self.display.end_time_step(self.cur_step)
 
+	def find_nearest_obstacle(self, cx, cy):
+		astlocs = self.field.obstacle_locations(self.cur_step, cx, cy, self.min_dist * 5)
+		nearest_obstacle = None
+		nearest_obstacle_id = -1
+		nearest_obstacle_dist = np.float("inf")    
+		collisions = ()
+		for i,x,y in astlocs:
+			dist, ox, oy = l2( (cx,cy), (x,y) )
+			if dist < self.min_dist:
+				collisions += (i,)
+			if dist < nearest_obstacle_dist:
+				nearest_obstacle_dist = dist
+				nearest_obstacle = [ox, oy]
+				nearest_obstacle_id = i
+		if (nearest_obstacle_id == -1):
+			nearest_obstacle = [-1, -1]
+		return nearest_obstacle_id, nearest_obstacle, collisions
+
 	def step(self, action, is_safe = False, unsafe_obstacle_ids = []):
 		'''
 		action: [dv_x, dv_y]
@@ -102,7 +122,9 @@ class Env(object):
 		is_collide = self.check_collision(cx, cy, unsafe_obstacle_ids)
 
 		next_robot_state = [cx, cy, self.robot_state.v_x, self.robot_state.v_y]
-		next_state = next_robot_state
+		nearest_obstacle_id, nearest_obstacle, collisions = self.find_nearest_obstacle(cx, cy)
+		relative_pos = [cx - nearest_obstacle[0], cy - nearest_obstacle[1]]
+		next_state = next_robot_state + relative_pos
 
 		# done
 		done = False
