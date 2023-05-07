@@ -15,6 +15,7 @@ We provide code of safe control method - Safe Set Algorithm (SSA) and test it in
 
 ```
 pip install cvxopt
+pip install tensorflow
 ```
 
 ## Usage
