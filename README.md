@@ -27,6 +27,13 @@ python main.py --ssa
 - `--no-ssa` means that ssa is not used.
 - `--ssa` means that ssa is used for monitoring and modifying the unsafe control.
 
+Train the RL policy with SSA and without SSA
+```
+python rl_main.py --no-ssa
+python rl_main.py --ssa
+```
+- `--no-ssa` means that ssa is not used.
+- `--ssa` means that ssa is used for monitoring and modifying the unsafe control.
 
 ## Acknowledgments
 Part of the simulation environment code is coming from the course CS 7638: Artificial Intelligence for Robotics in GaTech. We get the permission from the lecturor Jay Summet to use this code.
