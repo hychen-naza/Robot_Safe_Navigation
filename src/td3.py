@@ -149,6 +149,7 @@ class TD3():
             not_done: tf tensor, size (batch_size, 1)
         '''
         # Select action according to policy and add clipped noise
+        # https://zhuanlan.zhihu.com/p/66303325
         noise = tf.clip_by_value(tf.random.normal(action.shape) * self.policy_noise,
                                  -self.noise_clip, self.noise_clip)
 
